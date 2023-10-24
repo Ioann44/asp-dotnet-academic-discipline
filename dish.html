@@ -6,6 +6,31 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Узбекский плов</title>
 	<link rel="stylesheet" href="style.css">
+	<style>
+		.image-box {
+			max-width: 50%;
+			max-height: 80vh;
+			aspect-ratio: 1/1;
+			background-color: lightgrey;
+			position: relative;
+		}
+
+		.image-box>img {
+			margin: 2%;
+		}
+
+		.dish-decription {
+			margin-left: 20px;
+			width: 40%;
+			height: inherit;
+		}
+
+		.dish-decription>div {
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+		}
+	</style>
 </head>
 
 <body>
@@ -26,11 +51,13 @@
 	<main>
 		<div style="margin: 30px; display: inline-flex; width: 90%;">
 			<div class="image-box">
-				<img src="images/cat-image.png" alt="" style="max-width: 96%; max-height: 47%; aspect-ratio: 2/1;">
-				<img src="images/cat-image.png" alt=""
-					style="max-width: 46%; max-height: 46%; aspect-ratio: 1/1; position: absolute; bottom: 0; left: 0;">
-				<img src="images/cat-image.png" alt=""
-					style="max-width: 46%; max-height: 46%; aspect-ratio: 1/1; position: absolute; bottom: 0; left: 50%;">
+				<img src="images/плов1.jpg" alt="" style="width: 96%; aspect-ratio: 2/1; object-fit: cover;">
+				<div>
+					<img src="images/плов2.jpg" alt=""
+						style="width: 46%; aspect-ratio: 1/1; position: absolute; bottom: 2%; left: 2%; object-fit: cover;">
+					<img src="images/плов3.jpg" alt=""
+						style="width: 46%; aspect-ratio: 1/1; position: absolute; bottom: 2%; right: 2%; object-fit: cover;">
+				</div>
 			</div>
 			<div class="dish-decription">
 				<h1 style="font-size: 200%;">Узбекский плов</h1>
@@ -47,7 +74,7 @@
 					</h2>
 					<div style="display: flex; justify-content: space-between;">
 						<p>Рейтинг: 10/10</p>
-						<p>Цена: 100 руб</p>
+						<p>Цена: 200 руб</p>
 					</div>
 				</div>
 			</div>

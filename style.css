@@ -60,40 +60,29 @@ footer {
 	position: relative;
 }
 
-.dish-preview>img {
-	width: 120px;
-	margin-right: 10px;
-}
-
 .dish-preview>div>p {
 	white-space: normal;
 }
 
-.image-box {
-	max-width: 50%;
-	max-height: 80vh;
-	aspect-ratio: 1/1;
-	background-color: lightgrey;
-	position: relative;
+.dish-preview-text {
+	width: 130px;
+	text-align: center;
+	overflow: hidden;
 }
 
-.image-box>img {
-	margin: 2%;
-}
-
-.dish-decription {
-	margin-left: 20px;
-	/* display: flex;
-	flex-direction: column;
-	justify-content: space-between; */
-	width: 40%;
-	height: inherit;
-}
-
-.dish-decription>div {
+.image-wrapper {
+	width: 120px;
+	height: 120px;
+	overflow: hidden;
+	margin-right: 5px;
 	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
+	justify-content: center;
+}
+
+.image-wrapper img {
+	min-width: 100%;
+	min-height: 100%;
+	object-fit: cover;
 }
 
 .button {
