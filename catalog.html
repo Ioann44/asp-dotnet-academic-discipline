@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Каталог блюд</title>
+	<link rel="stylesheet" href="style.css">
+	<style>
+		.li-button:hover {
+			/* border: solid; */
+			/* border-radius: 5px; */
+			background-color: rgb(194, 194, 194);
+		}
+
+		.image-wrapper {
+			width: 140px;
+			height: 120px;
+			overflow: hidden;
+			margin-right: 20px;
+			display: flex;
+			justify-content: center;
+		}
+
+		.image-wrapper img {
+			display: block;
+			object-fit: cover;
+		}
+	</style>
+</head>
+
+<body>
+	<!-- Header -->
+	<header>
+		<nav style="padding: 5px;">
+			<a class="header-link" href="./index.html">Главная</a>
+			<a class="header-link" href="./catalog.html">Блюда</a>
+			<a class="header-link" href="./about.html">О нас</a>
+			<a class="header-link" href="./track.html">Отследить заказ</a>
+		</nav>
+		<div style="flex: 1; padding-right: 5px; text-align: center;">
+			<p style="font-size: 150%; margin: 10px;">Доставка еды</p>
+		</div>
+		<a href="./shop-cart.html">🛒</a>
+	</header>
+	<!-- Main -->
+	<main style="display: flex;">
+		<!-- Filter -->
+		<div class="filter">
+			<p style="font-size: 2rem; margin: 0; margin-top: 10px;">Фильтр</p>
+			<!-- <p style="margin: 0; font-size: 150%;">Фильтр</p> -->
+			<section>
+				<p>Упорядочить:</p>
+				<button class="li-button">
+					<li>сначала дешёвые</li>
+				</button>
+				<button class="li-button">
+					<li>сначала дорогие</li>
+				</button>
+				<button class="li-button">
+					<li>по популярности</li>
+				</button>
+			</section>
+			<section>
+				<p>Тип:</p>
+				<button class="li-button">
+					<li class="filter-true">первое (5)</li>
+				</button>
+				<button class="li-button">
+					<li class="filter-true">второе (7)</li>
+				</button>
+				<button class="li-button">
+					<li class="filter-false">десерт (3)</li>
+				</button>
+				<button class="li-button">
+					<li class="filter-false">напитки (2)</li>
+				</button>
+				<button class="li-button">
+					<li class="filter-false">другое (2)</li>
+				</button>
+			</section>
+			<section>
+				<p>Наличие мяса:</p>
+				<button class="li-button">
+					<li class="filter-false">вегетарианские (15)</li>
+				</button>
+				<button class="li-button">
+					<li class="filter-true">мясные (17)</li>
+				</button>
+			</section>
+		</div>
+		<div class="dish-catalog-container">
+			<!-- Dish block -->
+			<div class="dish-preview" onclick="location.href='./dish.html'">
+				<div class="image-wrapper">
+					<img src="images/борщ.jpg" alt="Dish image">
+				</div>
+				<div>
+					<p>Борщ</p>
+					<p>250 руб</p>
+				</div>
+			</div>
+			<!-- Dish block -->
+			<div class="dish-preview" onclick="location.href='./dish.html'">
+				<div class="image-wrapper">
+					<img src="images/пельмени.jpg" alt="Dish image">
+				</div>
+				<div>
+					<p>Пельмени с мясом</p>
+					<p>180 руб</p>
+				</div>
+			</div>
+			<!-- Dish block -->
+			<div class="dish-preview" onclick="location.href='./dish.html'">
+				<div class="image-wrapper">
+					<img src="images/цезарь салат.jpg" alt="Dish image">
+				</div>
+				<div>
+					<p>Цезарь-салат</p>
+					<p>320 руб</p>
+				</div>
+			</div>
+			<!-- Dish block -->
+			<div class="dish-preview" onclick="location.href='./dish.html'">
+				<div class="image-wrapper">
+					<img src="images/пицца маргарита.jpg" alt="Dish image">
+				</div>
+				<div>
+					<p>Пицца "Маргарита"</p>
+					<p>400 руб</p>
+				</div>
+			</div>
+			<!-- Dish block -->
+			<div class="dish-preview" onclick="location.href='./dish.html'">
+				<div class="image-wrapper">
+					<img src="images/суши ролл филадельфия.jpg" alt="Dish image">
+				</div>
+				<div>
+					<p>Суши ролл "Филадельфия"</p>
+					<p>550 руб</p>
+				</div>
+			</div>
+			<!-- Dish block -->
+			<div class="dish-preview" onclick="location.href='./dish.html'">
+				<div class="image-wrapper">
+					<img src="images/стейк из говядины.jpg" alt="Dish image">
+				</div>
+				<div>
+					<p>Стейк из говядины</p>
+					<p>700 руб</p>
+				</div>
+			</div>
+			<!-- Dish block -->
+			<div class="dish-preview" onclick="location.href='./dish.html'">
+				<div class="image-wrapper">
+					<img src="images/лобстер с маслом.jpg" alt="Dish image">
+				</div>
+				<div>
+					<p>Лобстер с маслом</p>
+					<p>1200 руб</p>
+				</div>
+			</div>
+			<!-- Dish block -->
+			<div class="dish-preview" onclick="location.href='./dish.html'">
+				<div class="image-wrapper">
+					<img src="images/тирамису.jpg" alt="Dish image">
+				</div>
+				<div>
+					<p>Тирамису</p>
+					<p>220 руб</p>
+				</div>
+			</div>
+			<!-- Dish block -->
+			<div class="dish-preview" onclick="location.href='./dish.html'">
+				<div class="image-wrapper">
+					<img src="images/фруктовый коктейль.jpg" alt="Dish image">
+				</div>
+				<div>
+					<p>Фруктовый коктейль</p>
+					<p>150 руб</p>
+				</div>
+			</div>
+		</div>
+	</main>
+	<!-- Footer -->
+	<footer>
+		<p>© 2023 ООО «Доставка еды»</p>
+		<p>Обратная связь: example@mail.ru, +79311234567</p>
+	</footer>
+</body>
+
+</html>

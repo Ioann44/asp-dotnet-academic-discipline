@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Корзина</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+	<!-- Header -->
+	<header>
+		<nav style="padding: 5px;">
+			<a class="header-link" href="./index.html">Главная</a>
+			<a class="header-link" href="./catalog.html">Блюда</a>
+			<a class="header-link" href="./about.html">О нас</a>
+			<a class="header-link" href="./track.html">Отследить заказ</a>
+		</nav>
+		<div style="flex: 1; padding-right: 5px; text-align: center;">
+			<p style="font-size: 150%; margin: 10px;">Доставка еды</p>
+		</div>
+		<a href="./shop-cart.html">🛒</a>
+	</header>
+	<!-- Main -->
+	<main>
+		<div class="buy-panel">
+			<p>Общая стоимость: 300 руб</p>
+			<button>Оформить заказ</button>
+		</div>
+		<div class="dish-catalog-container">
+			<!-- Dish block -->
+							<div class="dish-preview" onclick="location.href='./dish.html'">
+				<img src="images/cat-image.png" alt="Dish image">
+				<div>
+					<p>Вкусная еда какой вы не найдёте больше нигде</p>
+					<p>100 руб</p>
+				</div>
+				<button>❌</button>
+			</div>
+			<!-- Dish block -->
+							<div class="dish-preview" onclick="location.href='./dish.html'">
+				<img src="images/cat-image.png" alt="Dish image">
+				<div>
+					<p>Вкусная еда какой вы не найдёте больше нигде</p>
+					<p>100 руб</p>
+				</div>
+				<button>❌</button>
+			</div>
+			<!-- Dish block -->
+							<div class="dish-preview" onclick="location.href='./dish.html'">
+				<img src="images/cat-image.png" alt="Dish image">
+				<div>
+					<p>Вкусная еда какой вы не найдёте больше нигде</p>
+					<p>100 руб</p>
+				</div>
+				<button>❌</button>
+			</div>
+		</div>
+	</main>
+	<!-- Footer -->
+	<footer>
+		<p>© 2023 ООО «Доставка еды»</p>
+		<p>Обратная связь: example@mail.ru, +79311234567</p>
+	</footer>
+</body>
+
+</html>
