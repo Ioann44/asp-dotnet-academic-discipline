@@ -6,6 +6,22 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Корзина</title>
 	<link rel="stylesheet" href="style.css">
+	<style>
+		input,
+		select {
+			display: block;
+			margin-bottom: 10px;
+		}
+
+		#input-field-bonus::-webkit-inner-spin-button {
+			-webkit-appearance: none;
+		}
+
+		#input-field-bonus::-webkit-outer-spin-button {
+			-webkit-appearance: none;
+		}
+	</style>
+	<script src="./script.js"></script>
 </head>
 
 <body>
@@ -63,6 +79,25 @@
 				<button>❌</button>
 			</div>
 		</div>
+		<form>
+			<fieldset>
+				<legend>Оформить заказ</legend>
+				<label for="input-field-name">Ваше имя:*</label>
+				<input id="input-field-name" type="text"></input>
+				<label for="input-field-phone">Телефон:*</label>
+				<input id="input-field-phone" type="text"></input>
+				<label for="input-field-mail">E-mail:*</label>
+				<input id="input-field-mail" type="text"></input>
+				<label for="input-field-adress">Адрес доставки:*</label>
+				<input id="input-field-adress" type="text"></input>
+				<label for="input-field-bonus">Промокод:</label>
+				<input id="input-field-bonus" type="number" min="0"
+					onkeypress="if (this.value > 1e9) {this.value = Math.floor(this.value / 10); return false;}"></input>
+				<label for="input-field-comment">Комментарий:</label>
+				<input id="input-field-comment" type="text"></input>
+				<button type="submit">Добавить</button>
+			</fieldset>
+		</form>
 	</main>
 	<!-- Footer -->
 	<footer>
