@@ -1,5 +1,6 @@
 let form;
 let carousel;
+let moveToTopButton;
 
 function showTemporaryNotification(message, duration = 3000) {
 	const notification = document.createElement("div");
@@ -27,11 +28,25 @@ function carouselMove(diff) {
 	images[(images.length + showedImgIndex + diff) % images.length].style.display = "block";
 }
 
+window.onscroll = function () { scrollFunction() };
+function scrollFunction() {
+	if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+		moveToTopButton.style.display = "block";
+	} else {
+		moveToTopButton.style.display = "none";
+	}
+}
+function topFunction() {
+	document.body.scrollTop = 0;
+	document.documentElement.scrollTop = 0;
+}
+
 
 window.onload = () => {
 	const notificationContainer = document.getElementById("notificationContainer");
 	carousel = document.getElementsByClassName("about-gallery")[0];
 	form = document.getElementsByTagName("form")[0];
+	moveToTopButton = document.getElementById("btnToTop");
 
 	try {
 		form.addEventListener("submit", event => {
@@ -79,21 +94,21 @@ window.onload = () => {
 		})
 	} catch (error) { }
 
-	// try {
-	const expandableImages = document.querySelectorAll('.expandable-image');
-	const modal = document.getElementById('modal');
-	const modalImg = document.getElementById('modalImage');
-	const closeBtn = document.getElementsByClassName('close')[0];
-	closeBtn.addEventListener('click', function () {
-		modal.style.display = 'none';
-	});
-	[...expandableImages].forEach(image => {
-		expandableImages.forEach(image => {
-			image.addEventListener('click', function () {
-				modal.style.display = 'flex';
-				modalImg.src = this.src;
+	try {
+		const expandableImages = document.querySelectorAll('.expandable-image');
+		const modal = document.getElementById('modal');
+		const modalImg = document.getElementById('modalImage');
+		const closeBtn = document.getElementsByClassName('close')[0];
+		closeBtn.addEventListener('click', function () {
+			modal.style.display = 'none';
+		});
+		[...expandableImages].forEach(image => {
+			expandableImages.forEach(image => {
+				image.addEventListener('click', function () {
+					modal.style.display = 'flex';
+					modalImg.src = this.src;
+				});
 			});
 		});
-	});
-	// } catch (error) { }
+	} catch (error) { }
 }
