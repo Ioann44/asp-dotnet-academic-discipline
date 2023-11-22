@@ -6,9 +6,13 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Отследить заказ</title>
 	<link rel="stylesheet" href="style.css">
+	<script src="./script.js"></script>
 </head>
 
 <body>
+	<!-- Notifications -->
+	<div id="notificationContainer"></div>
+
 	<!-- Header -->
 	<header>
 		<nav style="padding: 5px;">
@@ -28,7 +32,8 @@
 			<p id="order-id-key">ID заказа</p>
 			<div id="order-value-box">
 				<input id="order-id-value" value="1234567890"></input>
-				<button id="track-order-button">Отследить</button>
+				<button id="track-order-button"
+					onclick="showTemporaryNotification('Принят запрос на отслеживание');">Отследить</button>
 			</div>
 			<table id="order-table">
 				<tr>
