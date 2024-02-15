@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Добавить блюдо</title>
+	<link rel="stylesheet" href="../style.css">
+	<style>
+		.form-container {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			margin: 30px;
+		}
+
+		.form-field {
+			margin-bottom: 20px;
+			width: 70%;
+		}
+
+		.form-field label {
+			display: block;
+			margin-bottom: 5px;
+		}
+
+		.form-field input,
+		.form-field textarea,
+		.form-field select {
+			width: 100%;
+			padding: 10px;
+			box-sizing: border-box;
+		}
+
+		.form-field button {
+			background-color: rgb(74, 74, 74);
+			color: white;
+			padding: 10px;
+			border: none;
+			cursor: pointer;
+			border-radius: 5px;
+		}
+
+		.form-field button:hover {
+			background-color: #686868;
+		}
+	</style>
+</head>
+
+<body>
+	<!-- Header -->
+	<header>
+		<nav style="padding: 5px;">
+			<a class="header-link" href="./index.html">Главная</a>
+			<a class="header-link" href="./catalog.html">Блюда</a>
+			<a class="header-link" href="./about.html">О нас</a>
+			<a class="header-link" href="./track.html">Отследить заказ</a>
+		</nav>
+		<div style="flex: 1; padding-right: 5px; text-align: center;">
+			<p style="font-size: 150%; margin: 10px;">Добавить блюдо</p>
+		</div>
+		<a href="./shop-cart.html">🛒</a>
+	</header>
+
+	<!-- Main -->
+	<main>
+		<div class="form-container">
+			<div class="form-field">
+				<label for="dishName">Название блюда:</label>
+				<input type="text" id="dishName" name="dishName" required>
+			</div>
+
+			<div class="form-field">
+				<label for="dishDescription">Описание блюда:</label>
+				<textarea id="dishDescription" name="dishDescription" required></textarea>
+			</div>
+
+			<div class="form-field">
+				<label for="dishIngredients">Состав блюда:</label>
+				<textarea id="dishIngredients" name="dishIngredients" required></textarea>
+			</div>
+
+			<div class="form-field">
+				<label for="dishRating">Рейтинг блюда:</label>
+				<input type="number" id="dishRating" name="dishRating" min="1" max="10" required>
+			</div>
+
+			<div class="form-field">
+				<label for="dishPrice">Цена блюда (руб):</label>
+				<input type="number" id="dishPrice" name="dishPrice" min="0" required>
+			</div>
+
+			<div class="form-field">
+				<label for="dishImage">Изображение блюда:</label>
+				<input type="file" id="dishImage" name="dishImage" accept="image/*" required>
+			</div>
+
+			<button type="submit">Добавить блюдо</button>
+		</div>
+	</main>
+
+	<!-- Footer -->
+	<footer>
+		<p>© 2023 ООО «Доставка еды»</p>
+		<p>Обратная связь: example@mail.ru, +79311234567</p>
+	</footer>
+</body>
+
+</html>
