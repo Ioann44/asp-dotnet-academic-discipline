@@ -44,6 +44,11 @@
 		.form-field button:hover {
 			background-color: #686868;
 		}
+
+		/* Добавленные стили для новых выпадающих списков */
+		.form-field select {
+			margin-top: 5px;
+		}
 	</style>
 </head>
 
@@ -88,6 +93,25 @@
 			<div class="form-field">
 				<label for="dishPrice">Цена блюда (руб):</label>
 				<input type="number" id="dishPrice" name="dishPrice" min="0" required>
+			</div>
+
+			<div class="form-field">
+				<label for="dishType">Тип блюда:</label>
+				<select id="dishType" name="dishType" required>
+					<option value="first">Первое</option>
+					<option value="second">Второе</option>
+					<option value="dessert">Десерт</option>
+					<option value="drinks">Напитки</option>
+					<option value="other">Другое</option>
+				</select>
+			</div>
+
+			<div class="form-field">
+				<label for="meatAvailability">Наличие мяса:</label>
+				<select id="meatAvailability" name="meatAvailability" required>
+					<option value="vegetarian">Вегетарианское</option>
+					<option value="meat">Мясное</option>
+				</select>
 			</div>
 
 			<div class="form-field">
