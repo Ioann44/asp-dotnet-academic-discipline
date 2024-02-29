@@ -20,6 +20,7 @@ app.UseRouting();
 
 app.UseAuthorization();
 
+app.MapControllers();
 app.MapRazorPages();
 
-app.Run();
+app.Run("https://localhost:3000");
