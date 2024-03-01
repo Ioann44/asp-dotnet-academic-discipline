@@ -288,3 +288,25 @@ footer {
 #btnToTop:hover {
 	background-color: #686868;
 }
+
+.suggestions-container {
+	position: absolute;
+	top: 100%;
+	/* Положение подсказок относительно поля ввода */
+	left: 0;
+	width: 100%;
+	z-index: 1;
+	/* Перекрытие остальных элементов */
+}
+
+.suggestion {
+	padding: 10px;
+	background-color: #fff;
+	border: 1px solid #ccc;
+	cursor: pointer;
+}
+
+.suggestion:hover,
+.suggestion.active {
+	background-color: #f0f0f0;
+}

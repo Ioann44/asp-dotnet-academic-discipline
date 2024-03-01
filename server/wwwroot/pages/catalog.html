@@ -6,6 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Каталог блюд</title>
 	<link rel="stylesheet" href="/css/style.css">
+	<script src="/js/ajax-catalog.js"></script>
 	<style>
 		.li-button:hover {
 			/* border: solid; */
@@ -18,7 +19,7 @@
 <body>
 	<!-- Back to top -->
 	<button onclick="topFunction()" id="btnToTop" title="Go to top">&uparrow;</button>
-	
+
 	<!-- Header -->
 	<header>
 		<nav style="padding: 5px;">
@@ -36,6 +37,12 @@
 	<main style="display: flex;">
 		<!-- Filter -->
 		<div class="filter">
+			<!-- Search field -->
+			<section style="margin-top: 15px; position: relative;">
+				<input type="text" id="dishSearch" placeholder="Поиск по названию блюда">
+				<div id="suggestionsContainer" class="suggestions-container"></div>
+			</section>
+
 			<p style="font-size: 2rem; margin: 0; margin-top: 10px;">Фильтр</p>
 			<!-- <p style="margin: 0; font-size: 150%;">Фильтр</p> -->
 			<section>
@@ -79,96 +86,7 @@
 			</section>
 		</div>
 		<div class="dish-catalog-container">
-			<!-- Dish block -->
-			<div class="dish-preview" onclick="location.href='./dish.html'">
-				<div class="image-wrapper">
-					<img src="../images/борщ.jpg" alt="Dish image">
-				</div>
-				<div class="dish-preview-text">
-					<p>Борщ</p>
-					<p>250 руб</p>
-				</div>
-			</div>
-			<!-- Dish block -->
-			<div class="dish-preview" onclick="location.href='./dish.html'">
-				<div class="image-wrapper">
-					<img src="../images/пельмени.jpg" alt="Dish image">
-				</div>
-				<div class="dish-preview-text">
-					<p>Пельмени с мясом</p>
-					<p>180 руб</p>
-				</div>
-			</div>
-			<!-- Dish block -->
-			<div class="dish-preview" onclick="location.href='./dish.html'">
-				<div class="image-wrapper">
-					<img src="../images/цезарь салат.jpg" alt="Dish image">
-				</div>
-				<div class="dish-preview-text">
-					<p>Цезарь-салат</p>
-					<p>320 руб</p>
-				</div>
-			</div>
-			<!-- Dish block -->
-			<div class="dish-preview" onclick="location.href='./dish.html'">
-				<div class="image-wrapper">
-					<img src="../images/пицца маргарита.jpg" alt="Dish image">
-				</div>
-				<div class="dish-preview-text">
-					<p>Пицца "Маргарита"</p>
-					<p>400 руб</p>
-				</div>
-			</div>
-			<!-- Dish block -->
-			<div class="dish-preview" onclick="location.href='./dish.html'">
-				<div class="image-wrapper">
-					<img src="../images/суши ролл филадельфия.jpg" alt="Dish image">
-				</div>
-				<div class="dish-preview-text">
-					<p>Суши ролл "Филадельфия"</p>
-					<p>550 руб</p>
-				</div>
-			</div>
-			<!-- Dish block -->
-			<div class="dish-preview" onclick="location.href='./dish.html'">
-				<div class="image-wrapper">
-					<img src="../images/стейк из говядины.jpg" alt="Dish image">
-				</div>
-				<div class="dish-preview-text">
-					<p>Стейк из говядины</p>
-					<p>700 руб</p>
-				</div>
-			</div>
-			<!-- Dish block -->
-			<div class="dish-preview" onclick="location.href='./dish.html'">
-				<div class="image-wrapper">
-					<img src="../images/лобстер с маслом.jpg" alt="Dish image">
-				</div>
-				<div class="dish-preview-text">
-					<p>Лобстер с маслом</p>
-					<p>1200 руб</p>
-				</div>
-			</div>
-			<!-- Dish block -->
-			<div class="dish-preview" onclick="location.href='./dish.html'">
-				<div class="image-wrapper">
-					<img src="../images/тирамису.jpg" alt="Dish image">
-				</div>
-				<div class="dish-preview-text">
-					<p>Тирамису</p>
-					<p>220 руб</p>
-				</div>
-			</div>
-			<!-- Dish block -->
-			<div class="dish-preview" onclick="location.href='./dish.html'">
-				<div class="image-wrapper">
-					<img src="../images/фруктовый коктейль.jpg" alt="Dish image">
-				</div>
-				<div class="dish-preview-text">
-					<p>Фруктовый коктейль</p>
-					<p>150 руб</p>
-				</div>
-			</div>
+			<!-- Food container -->
 		</div>
 	</main>
 	<!-- Footer -->

@@ -7,6 +7,7 @@
 	<title>Узбекский плов</title>
 	<link rel="stylesheet" href="/css/style.css">
 	<script src="/js/script.js"></script>
+	<script src="/js/ajax-dish.js"></script>
 	<style>
 		.image-box {
 			max-width: 50%;
@@ -116,8 +117,18 @@
 						Рейтинг и цена блюда
 					</h2>
 					<div style="display: flex; justify-content: space-between;">
-						<p>Рейтинг: 10/10</p>
+						<p id="dishRating">Рейтинг: 10/10</p>
 						<p>Цена: 200 руб</p>
+					</div>
+					<div>
+						<label for="ratingInput">Оценка:</label>
+						<input type="text" oninput="
+							this.value=this.value.replace(/[^0-9]/g,'');
+							if (this.value) {
+								this.value = Math.max(Math.min(Number(this.value), 10), 1);
+							}
+						" id="ratingInput" min="1" max="10" pattern="\d*">
+						<button id="submitRatingButton" onclick="submitRating()">Оставить оценку</button>
 					</div>
 				</div>
 			</div>
