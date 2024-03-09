@@ -1,9 +1,10 @@
 document.addEventListener('DOMContentLoaded', function () {
 	// Функция для выполнения AJAX-запроса
 	function fetchData() {
-		fetch('/api/Dish') // URL вашего контроллера API
+		fetch('/api/Dishes') // URL вашего контроллера API
 			.then(response => response.json())
 			.then(data => {
+				console.log(data[0]);
 				// Обработка данных, например, вставка их на страницу
 				const dishContainer = document.querySelector('.dish-catalog-container');
 				data.forEach(dish => {
@@ -11,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function () {
 					dishBlock.className = 'dish-preview';
 					dishBlock.innerHTML = `
 						<div class="image-wrapper">
-							<img src="../images/${dish.name}.jpg" alt="Dish image">
+							<img src="data:image/jpeg;base64,${dish.image1}" alt="Dish image">
 						</div>
 						<div class="dish-preview-text">
 							<p>${dish.name}</p>
