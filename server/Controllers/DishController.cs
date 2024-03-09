@@ -1,6 +1,7 @@
 // DishController.cs
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
+using Microsoft.EntityFrameworkCore;
 
 [ApiController]
 [Route("api/[controller]")]
@@ -41,5 +42,58 @@ public class DishController : ControllerBase {
     public class Dish {
         public required string Name { get; set; }
         public int Price { get; set; }
+    }
+}
+
+[ApiController]
+[Route("api/[controller]")]
+public class DishesController : ControllerBase {
+    private readonly ApplicationDbContext _context;
+
+    public DishesController(ApplicationDbContext context) {
+        _context = context;
+    }
+
+    // GET: api/Dishes
+    [HttpGet]
+    public async Task<IActionResult> GetDishes() {
+        var dishes = await _context.Dishes.ToListAsync();
+        return Ok(dishes);
+    }
+
+    // GET: api/Dishes/5
+    [HttpGet("{id}")]
+    public async Task<IActionResult> GetDish(int id) {
+        var dish = await _context.Dishes.FindAsync(id);
+
+        if (dish == null) {
+            return NotFound();
+        }
+
+        return Ok(dish);
+    }
+
+    // POST: api/Dishes
+    [HttpPost]
+    public async Task<IActionResult> PostDish([FromBody] Enitities.Dish dish) {
+        _context.Dishes.Add(dish);
+        await _context.SaveChangesAsync();
+
+        return CreatedAtAction("GetDish", new { id = dish.Id }, dish);
+    }
+
+    // DELETE: api/Dishes/5
+    [HttpDelete("{id}")]
+    public async Task<IActionResult> DeleteDish(int id) {
+        var dish = await _context.Dishes.FindAsync(id);
+
+        if (dish == null) {
+            return NotFound();
+        }
+
+        _context.Dishes.Remove(dish);
+        await _context.SaveChangesAsync();
+
+        return NoContent();
     }
 }

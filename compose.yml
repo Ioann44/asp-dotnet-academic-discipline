@@ -1,0 +1,33 @@
+services:
+
+  database:
+    container_name: twi-database
+    image: postgres:16.2-alpine3.19
+    environment:
+      POSTGRES_PASSWORD: 1234
+      POSTGRES_USER: user
+      POSTGRES_DB: database
+    ports:
+      - 5432:5432
+    restart: unless-stopped
+    volumes:
+      - database-data:/var/lib/postgresql/data
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "pg_isready",
+          "-q",
+          "-d",
+          "database",
+          "-U",
+          "user"
+        ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  database-data:
+    driver: local
+    name: twi-database
