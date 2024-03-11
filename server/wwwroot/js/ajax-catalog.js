@@ -1,32 +1,67 @@
 document.addEventListener('DOMContentLoaded', function () {
-	// Функция для выполнения AJAX-запроса
-	function fetchData() {
-		fetch('/api/Dishes') // URL вашего контроллера API
-			.then(response => response.json())
-			.then(data => {
-				console.log(data[0]);
-				// Обработка данных, например, вставка их на страницу
-				const dishContainer = document.querySelector('.dish-catalog-container');
-				data.forEach(dish => {
-					const dishBlock = document.createElement('div');
-					dishBlock.className = 'dish-preview';
-					dishBlock.innerHTML = `
-						<div class="image-wrapper">
-							<img src="data:image/jpeg;base64,${dish.image1}" alt="Dish image">
-						</div>
-						<div class="dish-preview-text">
-							<p>${dish.name}</p>
-							<p>${dish.price} руб</p>
-						</div>
-					`;
-					dishContainer.appendChild(dishBlock);
-				});
-			})
-			.catch(error => console.error('Ошибка при получении данных:', error));
-	}
+    // Обработчики для маркеров фильтров
+    const filterButtons = document.querySelectorAll('.li-button');
+    filterButtons.forEach(button => {
+        button.addEventListener('click', function () {
+            // Добавьте обработку изменения состояния маркера (пустое или с крестиком)
+            button.classList.toggle('filter-active');
+            button.classList.toggle('filter-passive');
+            fetchData(); // После изменения состояния отправляйте запрос на сервер
+        });
+    });
 
-	// Вызываем функцию для получения данных после загрузки страницы
-	fetchData();
+    // Функция для выполнения AJAX-запроса с использованием текущих фильтров
+    function fetchData() {
+        const activeFilters = {
+            sortBy: 'rating', // Замените на ваше значение сортировки по умолчанию
+            dishTypes: [],
+            meatAvailability: [],
+        };
+
+        // Обработка маркеров фильтров
+        filterButtons.forEach(button => {
+            if (button.classList.contains('filter-active')) {
+                const filterType = button.getAttribute('data-filter-type');
+                const filterValue = button.getAttribute('data-filter-value');
+                
+                // Добавление типа и значения фильтра в объект
+                if (filterType === 'dishType') {
+                    activeFilters.dishTypes.push(filterValue);
+                } else if (filterType === 'meatAvailability') {
+                    activeFilters.meatAvailability.push(filterValue);
+                }
+            }
+        });
+
+        // Отправка AJAX-запроса на сервер с активными фильтрами
+        fetch(`/api/Dishes?sortBy=${activeFilters.sortBy}&dishTypes=${activeFilters.dishTypes.join(',')}&meatAvailability=${activeFilters.meatAvailability}`)
+            .then(response => response.json())
+            .then(data => {
+                // Очистка текущего содержимого
+                const dishCatalogContainer = document.getElementById('dishCatalogContainer');
+                dishCatalogContainer.innerHTML = '';
+
+                // Вставка нового содержимого
+                data.forEach(dish => {
+                    const dishBlock = document.createElement('div');
+                    dishBlock.className = 'dish-preview';
+                    dishBlock.innerHTML = `
+                        <div class="image-wrapper">
+                            <img src="data:image/jpeg;base64,${dish.image1}" alt="Dish image">
+                        </div>
+                        <div class="dish-preview-text">
+                            <p>${dish.name}</p>
+                            <p>${dish.price} руб</p>
+                        </div>
+                    `;
+                    dishCatalogContainer.appendChild(dishBlock);
+                });
+            })
+            .catch(error => console.error('Ошибка при получении данных:', error));
+    }
+
+    // Вызываем функцию для получения данных после загрузки страницы
+    fetchData();
 });
 
 document.addEventListener('DOMContentLoaded', function () {

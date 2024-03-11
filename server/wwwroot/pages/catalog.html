@@ -8,7 +8,7 @@
 	<link rel="stylesheet" href="/css/style.css">
 	<script src="/js/ajax-catalog.js"></script>
 	<style>
-		.li-button:hover {
+		.li-button filter-passive:hover {
 			/* border: solid; */
 			/* border-radius: 5px; */
 			background-color: rgb(194, 194, 194);
@@ -47,45 +47,45 @@
 			<!-- <p style="margin: 0; font-size: 150%;">Фильтр</p> -->
 			<section>
 				<p>Упорядочить:</p>
-				<button class="li-button">
+				<button class="li-button filter-passive">
 					<li>сначала дешёвые</li>
 				</button>
-				<button class="li-button">
+				<button class="li-button filter-passive">
 					<li>сначала дорогие</li>
 				</button>
-				<button class="li-button">
+				<button class="li-button filter-passive">
 					<li>по популярности</li>
 				</button>
 			</section>
 			<section>
 				<p>Тип:</p>
-				<button class="li-button">
-					<li class="filter-true">первое (5)</li>
+				<button class="li-button filter-passive" data-filter-type="dishType" data-filter-value="first">
+					<li>первое (5)</li>
 				</button>
-				<button class="li-button">
-					<li class="filter-true">второе (7)</li>
+				<button class="li-button filter-passive" data-filter-type="dishType" data-filter-value="second">
+					<li>второе (7)</li>
 				</button>
-				<button class="li-button">
-					<li class="filter-false">десерт (3)</li>
+				<button class="li-button filter-passive" data-filter-type="dishType" data-filter-value="dessert">
+					<li>десерт (3)</li>
 				</button>
-				<button class="li-button">
-					<li class="filter-false">напитки (2)</li>
+				<button class="li-button filter-passive" data-filter-type="dishType" data-filter-value="drinks">
+					<li>напитки (2)</li>
 				</button>
-				<button class="li-button">
-					<li class="filter-false">другое (2)</li>
+				<button class="li-button filter-passive" data-filter-type="dishType" data-filter-value="other">
+					<li>другое (2)</li>
 				</button>
 			</section>
 			<section>
 				<p>Наличие мяса:</p>
-				<button class="li-button">
-					<li class="filter-false">вегетарианские (15)</li>
+				<button class="li-button filter-passive" data-filter-type="meatAvailability" data-filter-value="vegetarian">
+					<li>вегетарианские (15)</li>
 				</button>
-				<button class="li-button">
-					<li class="filter-true">мясные (17)</li>
+				<button class="li-button filter-passive" data-filter-type="meatAvailability" data-filter-value="meat">
+					<li>мясные (17)</li>
 				</button>
 			</section>
 		</div>
-		<div class="dish-catalog-container">
+		<div class="dish-catalog-container" id="dishCatalogContainer">
 			<!-- Food container -->
 		</div>
 	</main>

@@ -120,7 +120,7 @@ footer {
 	padding-left: 10px;
 	padding-right: 10px;
 	min-height: 100%;
-	min-width: 160px;
+	width: 170px;
 	display: flex;
 	flex-direction: column;
 	background-color: lightgrey;
@@ -136,12 +136,12 @@ footer {
 	display: flex;
 } */
 
-.filter-true::marker {
+.filter-active>li::marker {
 	content: '☒  ';
 	white-space: pre;
 }
 
-.filter-false::marker {
+.filter-passive>li::marker {
 	content: '☐  ';
 	white-space: pre;
 }

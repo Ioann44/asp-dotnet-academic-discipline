@@ -54,11 +54,49 @@ public class DishesController : ControllerBase {
         _context = context;
     }
 
-    // GET: api/Dishes
+    // GET: api/dishes
     [HttpGet]
-    public async Task<IActionResult> GetDishes() {
-        var dishes = await _context.Dishes.ToListAsync();
-        return Ok(dishes);
+    public async Task<ActionResult<IEnumerable<Enitities.Dish>>> GetDishes(
+        string sortBy = "rating",
+        [FromQuery] string? dishTypes = null,
+        [FromQuery] string? meatAvailability = null
+    ) {
+        IQueryable<Enitities.Dish> query = _context.Dishes;
+
+        var dishTypesArr = Array.Empty<string>();
+        var meatAvailabilityArr = Array.Empty<string>();
+        if (dishTypes != null) {
+            dishTypesArr = dishTypes.Split(",");
+        }
+        if (meatAvailability != null) {
+            meatAvailabilityArr = meatAvailability.Split(",");
+        }
+
+        // Фильтрация по типам блюд
+        if (dishTypesArr.Length != 0) {
+            query = query.Where(d => dishTypesArr.Contains(d.Type));
+        }
+        // Фильтрация по наличию мяса
+        if (meatAvailabilityArr.Length != 0) {
+            query = query.Where(d => meatAvailabilityArr.Contains(d.MeatAvailability));
+        }
+
+        // Сортировка
+        switch (sortBy.ToLower()) {
+            case "price":
+                query = query.OrderBy(d => d.Price);
+                break;
+            case "price-rev":
+                query = query.OrderByDescending(d => d.Price);
+                break;
+            case "rating":
+                query = query.OrderByDescending(d => d.Rating);
+                break;
+            default:
+                return BadRequest("Некорректный параметр сортировки. Используйте 'price', 'price-rev' или 'rating'.");
+        }
+
+        return await query.ToListAsync();
     }
 
     // GET: api/Dishes/5
