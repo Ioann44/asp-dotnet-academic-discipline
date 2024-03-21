@@ -2,7 +2,7 @@ import requests
 import os
 from base64 import b64encode
 
-api_url = "https://localhost:3000/api/dishes"
+api_url = "http://ioann44.ru:3000/api/dishes"
 
 dishes_data = [
     {
@@ -112,7 +112,7 @@ for dish_data in dishes_data:
     # dish_data["Image3"] = image_data
 
     # Отправка POST-запроса для создания блюда
-    response = requests.post(api_url, json=dish_data, verify=False)
+    response = requests.post(api_url, json=dish_data)
 
     if response.status_code == 201:
         print(f"Блюдо '{dish_data['Name']}' успешно добавлено.")

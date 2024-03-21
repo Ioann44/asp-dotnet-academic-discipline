@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function () {
 				console.log(dishData);
 
 				// Отправка данных на сервер
-				fetch('https://localhost:3000/api/dishes', {
+				fetch('http://localhost:3000/api/dishes', {
 					method: 'POST',
 					headers: {
 						'Content-Type': 'application/json',

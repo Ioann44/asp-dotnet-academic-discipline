@@ -13,6 +13,12 @@
 			/* border-radius: 5px; */
 			background-color: rgb(194, 194, 194);
 		}
+
+		.radio-label {
+			font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+			transform: translate(-3px, -3px);
+			display: inline-block
+		}
 	</style>
 </head>
 
@@ -47,41 +53,39 @@
 			<!-- <p style="margin: 0; font-size: 150%;">Фильтр</p> -->
 			<section>
 				<p>Упорядочить:</p>
-				<button class="li-button filter-passive">
-					<li>сначала дешёвые</li>
-				</button>
-				<button class="li-button filter-passive">
-					<li>сначала дорогие</li>
-				</button>
-				<button class="li-button filter-passive">
-					<li>по популярности</li>
-				</button>
+				<input type="radio" value="price" name="sorting" id="radio-1" checked>
+				<label class="radio-label" for="radio-1">сначала дешёвые</label><br>
+				<input type="radio" value="price-rev" name="sorting" id="radio-2">
+				<label class="radio-label" for="radio-2">сначала дорогие</label><br>
+				<input type="radio" value="rating" name="sorting" id="radio-3">
+				<label class="radio-label" for="radio-3">по популярности</label><br>
 			</section>
 			<section>
 				<p>Тип:</p>
 				<button class="li-button filter-passive" data-filter-type="dishType" data-filter-value="first">
-					<li>первое (5)</li>
+					<li>первое</li>
 				</button>
 				<button class="li-button filter-passive" data-filter-type="dishType" data-filter-value="second">
-					<li>второе (7)</li>
+					<li>второе</li>
 				</button>
 				<button class="li-button filter-passive" data-filter-type="dishType" data-filter-value="dessert">
-					<li>десерт (3)</li>
+					<li>десерт</li>
 				</button>
 				<button class="li-button filter-passive" data-filter-type="dishType" data-filter-value="drinks">
-					<li>напитки (2)</li>
+					<li>напитки</li>
 				</button>
 				<button class="li-button filter-passive" data-filter-type="dishType" data-filter-value="other">
-					<li>другое (2)</li>
+					<li>другое</li>
 				</button>
 			</section>
 			<section>
 				<p>Наличие мяса:</p>
-				<button class="li-button filter-passive" data-filter-type="meatAvailability" data-filter-value="vegetarian">
-					<li>вегетарианские (15)</li>
+				<button class="li-button filter-passive" data-filter-type="meatAvailability"
+					data-filter-value="vegetarian">
+					<li>вегетарианские</li>
 				</button>
 				<button class="li-button filter-passive" data-filter-type="meatAvailability" data-filter-value="meat">
-					<li>мясные (17)</li>
+					<li>мясные</li>
 				</button>
 			</section>
 		</div>

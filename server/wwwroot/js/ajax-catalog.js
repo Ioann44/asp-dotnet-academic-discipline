@@ -1,4 +1,13 @@
 document.addEventListener('DOMContentLoaded', function () {
+    // Обработчик для изменений в секции упорядочивания
+    const sortingRadios = document.querySelectorAll('input[name="sorting"]');
+    sortingRadios.forEach(radio => {
+        radio.addEventListener('change', function () {
+            fetchData(); // После изменения отправляем запрос на сервер
+        });
+    });
+
+
     // Обработчики для маркеров фильтров
     const filterButtons = document.querySelectorAll('.li-button');
     filterButtons.forEach(button => {
@@ -12,8 +21,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Функция для выполнения AJAX-запроса с использованием текущих фильтров
     function fetchData() {
+        const activeSorting = document.querySelector('input[name="sorting"]:checked').value;
+
         const activeFilters = {
-            sortBy: 'rating', // Замените на ваше значение сортировки по умолчанию
+            sortBy: activeSorting,
             dishTypes: [],
             meatAvailability: [],
         };
