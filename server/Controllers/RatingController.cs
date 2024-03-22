@@ -1,9 +1,6 @@
 // RatingController.cs
 using Microsoft.AspNetCore.Mvc;
 
-using System;
-using System.Collections.Generic;
-
 [ApiController]
 [Route("api/[controller]")]
 public class RatingController : ControllerBase {
